@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Projetando uma placa microcontrolada do zero: Parte 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <!-- Bootstrap -->
+    <link href="//netdna.bootstrapcdn.com/bootswatch/3.3.4/yeti/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <link href="/css/site.css" rel="stylesheet" media="screen">
+    <link href="/css/syntax.css" rel="stylesheet" media="screen">
+    <link href="/css/font_awesome/font-awesome.css" rel="stylesheet" media="screen">
+    <link href="/css/bootstrap-social.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48968311-4', 'jandecaluwe.com');
+  ga('send', 'pageview');
+
+</script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Parumtronics</a>
+        </div>
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav navbar-left">
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="/blog/">Blog</a></li>
+          </ul>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+<div class="container">
+
+  <ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li class="active">Projetando uma placa microcontrolada do zero: Parte 1</li>
+  </ol>
+
+  <div class="page-header">
+    <h1>Projetando uma placa microcontrolada do zero: Parte 1</h1>
+  </div>
+
+  <div class="row">
+
+    <div class="content">
+      <div class="col-md-7" role="main">
+        <p>Indo direto ao ponto: Essa é uma série de posts sobre como levar uma ideia de
+projeto, que eventualmente já foi prototipada usando um Arduino e shields, a
+uma placa dedicada ao projeto. Na primeira parte trataremos do básico, estrutura
+e seleção de componentes.</p>
+<h4 id="planejando-a-estrtutra-basica-do-projeto">Planejando a estrtutra básica do projeto</h4>
+<p>Então você teve uma ideia e está empolgado em trazê-la a vida, bem vindo ao
+clube. Não existe uma receita definitiva para atingir o estágio de protótipo.
+Você pode até considerar aqueles vários shields em cima de um arduino como um
+protótipo, mas aquele cenário está mais para uma prova de conceito. Um protótipo
+é um primeiro passo para a produção de uma placa que eventualmente se tornará um
+produto, ou não. </p>
+<p>O primeiro passo é estabelecer o que é necessário na placa. Usualmente nós vamos
+partir de um conjunto de requisitos da sua placa uma descrição como:</p>
+<p>"Essa placa é uma placa de desenvolvimento compatível com o novo Arduino zero,
+porém possuindo o mesmo formato do arduino nano"</p>
+<p>Sim é isso que faremos ;)</p>
+<p>Outras placas irão inserir outras descrições. Eu não gosto de inserir coisas do
+tipo </p>
+<p>"Essa placa(produto) utiliza um lm35"</p>
+<p>Ao invés disso:
+"Essa placa(produto) mede a temperatura... "</p>
+<h5 id="diagrama-de-blocos">Diagrama de blocos</h5>
+<p>A partir de uma descrição do que se deseja para o projeto é interessante a
+construção de um diegrama de blocos. O diagrama de blocos dará uma visão de como
+o hardware estará distribuído na placa. Eu utilizo o <a href="http://www.kicad-pcb.org">Kicad</a>
+no desenvolvimento do hardware dos meus projetos e nessa primeira etapa eu
+utilizo a ideia de folhas hierárquicas e de anotações no circuito para definir
+cada uma das partes. O resultado é depois aproveitado para o desenvolvimento de
+esquemáticos, em uma placa mais complexas vamos explorar um pouco mais disso,
+deixe uma sugestão para o próximo projeto nos comentários. </p>
+<h4 id="selecao-do-microcontrolador">Seleção do microcontrolador</h4>
+<p>Um ponto muito importante é selecionar corretamente o microcontrolador com as
+características necessárias ao seu projeto. E não, o fato de o atmega328p estar
+no arduino não o torna o escolhido para todos os problemas. Nossos amigos do
+Embarcados traçaram uma discussão sobre o assunto então não me estenderei no
+mesmo. Mas os pontos mais relevantes na seleção são:</p>
+<ul>
+<li>
+<p><strong>Adequação ao projeto</strong> - Os periféricos atendem as conexões necessárias? Há
+  poder de processamento suficiente pra executar os algoritmos que
+  possivelmente serão executados? A potência consumida é adequada ao
+  projeto?</p>
+</li>
+<li>
+<p><strong>Ferramentas</strong> - Há ferramentas gratuitas e de qualidade? Há um debugger de
+  baixo custo no mercado?</p>
+</li>
+<li>
+<p><strong>Experiência anterior/código legado</strong> - Há tempo para desenvolver as
+  habilidades necessárias para a nova escolha? Há uma quantidade de código
+  escrita para um outro microcontrolador?</p>
+</li>
+</ul>
+<p>Seções típicas de uma placa em sua rev0
+Particionamento de hw/sw
+coleta de email para acompanhamento da parte 2: o circuito de alimentação</p>
+      </div>
+    </div>
+
+    <div class="col-md-3" role="complementary">
+      <nav class="hidden-print hidden-xs hidden-sm">
+        <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
+          <div class="well">
+            <a href="#"><strong>Projetando uma placa microcontrolada do zero: Parte 1</strong></a>
+            <div class="toc">
+<ul>
+<li><a href="#planejando-a-estrtutra-basica-do-projeto">Planejando a estrtutra básica do projeto</a><ul>
+<li><a href="#diagrama-de-blocos">Diagrama de blocos</a></li>
+</ul>
+</li>
+<li><a href="#selecao-do-microcontrolador">Seleção do microcontrolador</a></li>
+</ul>
+</div>
+
+          </div>
+        </div>
+      </nav>
+    </div>
+
+  </div>
+
+
+    <div class="footer">
+        <p>Website powered by <a href="http://urubu.jandecaluwe.com">Urubu</a></p>
+    </div>
+
+
+</div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
