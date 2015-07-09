@@ -16,7 +16,7 @@ mesma disposição dos pinos, porém utilizando um microcontrolador compatível 
 o novo Arduino Zero. Ou seja teremos um nano com mais memória, capacidade de
 processamento mas ainda integrado as ferramentas da família Arduino.
 
-Essa placa será derivada do meu projeto [arf154]
+Essa placa será derivada do meu projeto [arf154_repo]
 
 ### Planejando a estrutura básica do projeto
 
@@ -115,6 +115,8 @@ testar opções, tudo depende de quanto tempo e dinheiro há disponível. As op�
 de prototipagem atuais tem facilitado bastante a nossa vida.
 
 Vou me focar no microcontrolador. O circuito básico de um microcontrolador
-envolve
+envolve os blocos da imagem:
+
+![](../images/ucsections.png)
 
 
