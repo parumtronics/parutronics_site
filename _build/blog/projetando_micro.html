@@ -77,36 +77,45 @@
 projeto, que eventualmente já foi prototipada usando um Arduino e shields, a
 uma placa dedicada ao projeto. Na primeira parte trataremos do básico, estrutura
 e seleção de componentes.</p>
-<h4 id="planejando-a-estrtutra-basica-do-projeto">Planejando a estrtutra básica do projeto</h4>
+<h4 id="planejando-a-estrutura-basica-do-projeto">Planejando a estrutura básica do projeto</h4>
 <p>Então você teve uma ideia e está empolgado em trazê-la a vida, bem vindo ao
 clube. Não existe uma receita definitiva para atingir o estágio de protótipo.
-Você pode até considerar aqueles vários shields em cima de um arduino como um
+Você pode até considerar aqueles vários shields em cima de um Arduino como um
 protótipo, mas aquele cenário está mais para uma prova de conceito. Um protótipo
 é um primeiro passo para a produção de uma placa que eventualmente se tornará um
-produto, ou não. </p>
+produto, ou não.</p>
 <p>O primeiro passo é estabelecer o que é necessário na placa. Usualmente nós vamos
 partir de um conjunto de requisitos da sua placa uma descrição como:</p>
-<p>"Essa placa é uma placa de desenvolvimento compatível com o novo Arduino zero,
-porém possuindo o mesmo formato do arduino nano"</p>
+<div class="codehilite"><pre>Essa placa é uma placa de desenvolvimento compatível com o novo Arduino zero,
+porém possuindo o mesmo formato do Arduino nano
+</pre></div>
+
+
 <p>Sim é isso que faremos ;)</p>
 <p>Outras placas irão inserir outras descrições. Eu não gosto de inserir coisas do
-tipo </p>
-<p>"Essa placa(produto) utiliza um lm35"</p>
-<p>Ao invés disso:
-"Essa placa(produto) mede a temperatura... "</p>
+tipo</p>
+<div class="codehilite"><pre>&quot;Essa placa(produto) utiliza um lm35&quot;
+</pre></div>
+
+
+<p>Ao invés disso:</p>
+<div class="codehilite"><pre>&quot;Essa placa(produto) mede a temperatura... &quot;
+</pre></div>
+
+
 <h5 id="diagrama-de-blocos">Diagrama de blocos</h5>
 <p>A partir de uma descrição do que se deseja para o projeto é interessante a
-construção de um diegrama de blocos. O diagrama de blocos dará uma visão de como
+construção de um diagrama de blocos. O diagrama de blocos dará uma visão de como
 o hardware estará distribuído na placa. Eu utilizo o <a href="http://www.kicad-pcb.org">Kicad</a>
 no desenvolvimento do hardware dos meus projetos e nessa primeira etapa eu
 utilizo a ideia de folhas hierárquicas e de anotações no circuito para definir
 cada uma das partes. O resultado é depois aproveitado para o desenvolvimento de
 esquemáticos, em uma placa mais complexas vamos explorar um pouco mais disso,
-deixe uma sugestão para o próximo projeto nos comentários. </p>
+deixe uma sugestão para o próximo projeto nos comentários.</p>
 <h4 id="selecao-do-microcontrolador">Seleção do microcontrolador</h4>
 <p>Um ponto muito importante é selecionar corretamente o microcontrolador com as
 características necessárias ao seu projeto. E não, o fato de o atmega328p estar
-no arduino não o torna o escolhido para todos os problemas. Nossos amigos do
+no Arduino não o torna o escolhido para todos os problemas. Nossos amigos do
 Embarcados traçaram uma discussão sobre o assunto então não me estenderei no
 mesmo. Mas os pontos mais relevantes na seleção são:</p>
 <ul>
@@ -125,10 +134,40 @@ mesmo. Mas os pontos mais relevantes na seleção são:</p>
   habilidades necessárias para a nova escolha? Há uma quantidade de código
   escrita para um outro microcontrolador?</p>
 </li>
+<li>
+<p>A documentação do fabricante é boa?</p>
+</li>
 </ul>
-<p>Seções típicas de uma placa em sua rev0
-Particionamento de hw/sw
-coleta de email para acompanhamento da parte 2: o circuito de alimentação</p>
+<p>Esse primeiro filtro irá proporcionar uma seleção que possivelmente irá atender
+aos requisitos iniciais sem muito sofrimento.</p>
+<div class="codehilite"><pre>Nesses tempos de internet nossa primeira tentativa é sempre realizar uma
+busca. O fabricante e o datasheet do componente são a fonte mais segura
+de informação na maior parte dos casos e possivelmente haverá um exemplo
+básico de como utilizar o componente. Aprender a ler e utilizar bem um
+datasheet é imprescindível, e não é tão difícil assim.
+</pre></div>
+
+
+<h4 id="particionamento-de-hwsw">Particionamento de hw/sw</h4>
+<p>Nessa etapa é interessante fazer uma análise de que partes do sistema serão
+executadas via software(por software estou incluindo aqui também o firmware) e
+quais serão executadas via hardware. Não faz muito sentido nesse estágio
+implementar uma UART em software ao invés de selecionar um microcontrolador que
+possua a quantidade de interfaces necessárias. Esta escolha é muito dependente
+da aplicação em questão e carece de uma discussão mais prolongada tentarei
+abordar o tema no futuro. Um ponto a se deixar bem claro é:</p>
+<p>O hardware executa a tarefa de modo independente e alivia o processamento,
+mas um bug no hardware custa muito mais pra ser corrigido.</p>
+<h4 id="secoes-tipicas-de-uma-placa-com-microcontrolador">Seções típicas de uma placa com microcontrolador</h4>
+<p>Algumas seções estarão presentes em todas as placas e serão modificadas conforme
+o desenvolvimento do produto avança. Tudo depende da fase em que estamos no
+desenvolvimento do mesmo, e qual o objetivo de um determinado protótipo.
+Eventualmente particionar em placas independentes pode ser interessante para
+testar opções, tudo depende de quanto tempo e dinheiro há disponível. As opções
+de prototipagem atuais tem facilitado bastante a nossa vida.</p>
+<p>Vou me focar no microcontrolador. O circuito básico de um microcontrolador
+envolve</p>
+<p>coleta de email para acompanhamento da parte 2: o circuito de alimentação</p>
       </div>
     </div>
 
@@ -139,11 +178,13 @@ coleta de email para acompanhamento da parte 2: o circuito de alimentação</p>
             <a href="#"><strong>Projetando uma placa microcontrolada do zero: Parte 1</strong></a>
             <div class="toc">
 <ul>
-<li><a href="#planejando-a-estrtutra-basica-do-projeto">Planejando a estrtutra básica do projeto</a><ul>
+<li><a href="#planejando-a-estrutura-basica-do-projeto">Planejando a estrutura básica do projeto</a><ul>
 <li><a href="#diagrama-de-blocos">Diagrama de blocos</a></li>
 </ul>
 </li>
 <li><a href="#selecao-do-microcontrolador">Seleção do microcontrolador</a></li>
+<li><a href="#particionamento-de-hwsw">Particionamento de hw/sw</a></li>
+<li><a href="#secoes-tipicas-de-uma-placa-com-microcontrolador">Seções típicas de uma placa com microcontrolador</a></li>
 </ul>
 </div>
 
