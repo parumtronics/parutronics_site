@@ -77,6 +77,12 @@
 projeto, que eventualmente já foi prototipada usando um Arduino e shields, a
 uma placa dedicada ao projeto. Na primeira parte trataremos do básico, estrutura
 e seleção de componentes.</p>
+<h4 id="o-que-faremos-no-decorrer-da-serie">O que faremos no decorrer da série</h4>
+<p>Faremos o desenvolvimento de uma placa com o footprint do arduino nano, com a
+mesma disposição dos pinos, porém utilizando um microcontrolador compatível com
+o novo Arduino Zero. Ou seja teremos um nano com mais memória, capacidade de
+processamento mas ainda integrado as ferramentas da família Arduino.</p>
+<p>Essa placa será derivada do meu projeto [arf154]</p>
 <h4 id="planejando-a-estrutura-basica-do-projeto">Planejando a estrutura básica do projeto</h4>
 <p>Então você teve uma ideia e está empolgado em trazê-la a vida, bem vindo ao
 clube. Não existe uma receita definitiva para atingir o estágio de protótipo.
@@ -92,14 +98,13 @@ porém possuindo o mesmo formato do Arduino nano
 
 
 <p>Sim é isso que faremos ;)</p>
-<p>Outras placas irão inserir outras descrições. Eu não gosto de inserir coisas do
-tipo</p>
-<div class="codehilite"><pre>&quot;Essa placa(produto) utiliza um lm35&quot;
+<p>Outras placas irão inserir outras descrições. Eu prefiro inserir coisas como</p>
+<div class="codehilite"><pre>Essa placa(produto) mede a temperatura...
 </pre></div>
 
 
 <p>Ao invés disso:</p>
-<div class="codehilite"><pre>&quot;Essa placa(produto) mede a temperatura... &quot;
+<div class="codehilite"><pre>Essa placa(produto) utiliza um lm35
 </pre></div>
 
 
@@ -167,7 +172,6 @@ testar opções, tudo depende de quanto tempo e dinheiro há disponível. As op�
 de prototipagem atuais tem facilitado bastante a nossa vida.</p>
 <p>Vou me focar no microcontrolador. O circuito básico de um microcontrolador
 envolve</p>
-<p>coleta de email para acompanhamento da parte 2: o circuito de alimentação</p>
       </div>
     </div>
 
@@ -178,6 +182,7 @@ envolve</p>
             <a href="#"><strong>Projetando uma placa microcontrolada do zero: Parte 1</strong></a>
             <div class="toc">
 <ul>
+<li><a href="#o-que-faremos-no-decorrer-da-serie">O que faremos no decorrer da série</a></li>
 <li><a href="#planejando-a-estrutura-basica-do-projeto">Planejando a estrutura básica do projeto</a><ul>
 <li><a href="#diagrama-de-blocos">Diagrama de blocos</a></li>
 </ul>

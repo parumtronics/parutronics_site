@@ -9,6 +9,15 @@ projeto, que eventualmente já foi prototipada usando um Arduino e shields, a
 uma placa dedicada ao projeto. Na primeira parte trataremos do básico, estrutura
 e seleção de componentes.
 
+### O que faremos no decorrer da série
+
+Faremos o desenvolvimento de uma placa com o footprint do arduino nano, com a
+mesma disposição dos pinos, porém utilizando um microcontrolador compatível com
+o novo Arduino Zero. Ou seja teremos um nano com mais memória, capacidade de
+processamento mas ainda integrado as ferramentas da família Arduino.
+
+Essa placa será derivada do meu projeto [arf154]
+
 ### Planejando a estrutura básica do projeto
 
 Então você teve uma ideia e está empolgado em trazê-la a vida, bem vindo ao
@@ -21,8 +30,10 @@ produto, ou não.
 O primeiro passo é estabelecer o que é necessário na placa. Usualmente nós vamos
 partir de um conjunto de requisitos da sua placa uma descrição como:
 
-    Essa placa é uma placa de desenvolvimento compatível com o novo Arduino zero,
-    porém possuindo o mesmo formato do Arduino nano
+``` no-highlight
+Essa placa é uma placa de desenvolvimento compatível com o novo Arduino zero,
+porém possuindo o mesmo formato do Arduino nano
+```
 
 Sim é isso que faremos ;)
 
@@ -105,6 +116,5 @@ de prototipagem atuais tem facilitado bastante a nossa vida.
 
 Vou me focar no microcontrolador. O circuito básico de um microcontrolador
 envolve
-
 
 

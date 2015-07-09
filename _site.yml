@@ -9,6 +9,9 @@ reflinks:
     parumtronics:
         url: https://parumtronics.github.io
         title: Parumtronics
+    arf154_repo:
+        url: https://github.com/parumtronics/arf154
+        title: arf154
     urubu_manual:
         url: http://urubu.jandecaluwe.com/manual
         title: Urubu Manual 
