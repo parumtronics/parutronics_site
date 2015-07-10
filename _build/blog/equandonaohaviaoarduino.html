@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>E quando não havia o Arduino?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <!-- Bootstrap -->
+    <link href="//netdna.bootstrapcdn.com/bootswatch/3.3.4/yeti/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <link href="/css/site.css" rel="stylesheet" media="screen">
+    <link href="/css/syntax.css" rel="stylesheet" media="screen">
+    <link href="/css/font_awesome/font-awesome.css" rel="stylesheet" media="screen">
+    <link href="/css/bootstrap-social.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.4";
+              fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48968311-4', 'jandecaluwe.com');
+  ga('send', 'pageview');
+
+</script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Parumtronics</a>
+        </div>
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav navbar-left">
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="/blog/">Blog</a></li>
+          </ul>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+<div class="container">
+
+  <ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li class="active">E quando não havia o Arduino?</li>
+  </ol>
+
+  <div class="page-header">
+    <h1>E quando não havia o Arduino?</h1>
+  </div>
+
+  <div class="row">
+
+    <div class="content">
+      <div class="col-md-7" role="main">
+        <p>Quando comecei a brincar com microcontroladores, alguns anos atrás, havia somente os embriões de toda essa 
+corrente maker que agora flui para alçar voos maiores e com um monte de projetos bacanas possibilitando a execução 
+rápida e com cada vez mais recursos. Isso faz com que eu me sinta um tanto "old school". Mas não me tome por tão velho assim. 
+Comecei a estudar/brincar com sistemas embarcados por volta de 2001, não é tanto tempo assim.</p>
+<p>Desde então muita coisa mudou. Naqueles tempos o pessoal por aqui no Brasil praticamente só falava em PIC, do 
+mesmo modo que hoje muita gente só conhece o Arduino. Bem o ponto deste post é justamente esse: existe um mundo
+imenso fora dessas plataformas a ser explorado e é um mundo bem divertido. As plataformas como o Arduino são 
+sensacionais dentro da sua proposta mas não são tudo o que há ou sempre houve. Então, e se não houvesse o Arduino no mundo,
+como fazer?
+<!--more --></p>
+<h4 id="os-alicerces-para-o-desenvolvimento">Os alicerces para o desenvolvimento</h4>
+<p>Quando desenvolvemos um sistema embarcado a tarefa resumida consiste em:</p>
+<ol>
+<li>Escrever o código do programa</li>
+<li>Cross-compilar para o processador em uso</li>
+<li>Gravar o microcontrolador</li>
+<li>Testar/Debugar</li>
+<li>Repetir exaustivamente até o resultado desejado, com ênfase na etapa 4 </li>
+</ol>
+<p>Para executar essa lista de tarefas um conjunto de ferramentas é necessário.</p>
+<p>A primeira tarefa exige um bom editor de texto, voltado para a programação. Eu já usei bastante coisa mas hoje 
+trabalho basicamente no vim. Muitos editores de texto bons são produzidos para programadores então não vou nem 
+tentar construir uma lista deles. Há muitas pela internet afora. </p>
+<p>Para traduzir o código, usualmente escrito em C ou seus dialetos, é necessário o uso de um compilador que levar
+o seu texto a um idioma conhecido pelo processador, as suas instruções. No caso do Arduino que usa um microcontrolador 
+com núcleo AVR o compilador utilizado é o avr-gcc.</p>
+<p>Após compilado o código a imagem gerada deve ser gravada no microcontrolador. O microcontrolador possui uma memória
+que não é apagada a cada vez que ele é reiniciado. Nos dias de hoje o tipo de memória é usualmente flash. Os 
+microcontroladores proveem interfaces para realizar essa gravação, nos AVR um caminho possível é a interface
+de <a href="http://www.atmel.com/images/doc0943.pdf">ICP( In-System Programming)</a> através de um protocolo via SPI.  </p>
+<p>Alguns microcontroladores oferecem também uma interface que permite executar o código linha a linha a fim de 
+identificar possíveis problemas. No caso do AVR nem todos os microcontroladores possuem a interface específica 
+para debug e então se faz necessário o uso de interfaces seriais, LED's e outros subterfúgios para localizar e 
+corrigir os erros.</p>
+<p>Para resolver estes problemas básicos o Arduino provê uma IDE(ambiente integrado de desenvolvimento), a interface 
+de gravação é feita através de um bootloader serial(UART) e uma interface USB-Serial é disponibilizada nas placas. 
+Para executar seções de debug no atmega328p é necessário um conjunto específico de ferramentas(AVR Dragon por exemplo) que 
+utilizarão a interface debugWire. A IDE do Arduino não está preparada para executar seções de debug. </p>
+<h4 id="executando-um-projeto-sem-o-uso-do-arduino-com-makefile">Executando um projeto sem o uso do Arduino ( com Makefile )</h4>
+<p>Deixando de lado a conversa e partindo pra ação. Serão necessárias as seguintes ferramentas:</p>
+<ul>
+<li>Um editor de texto( kate, notepad++, SublimeText, vim)</li>
+<li>avr-gcc ( winavr no windows )</li>
+<li>avrdude</li>
+</ul>
+<p>Supondo que tudo está instalado comecemos um repositório. Um repositório é um local onde o seu código ficará armazenado e 
+será versionado(nada de versao_de_sexta ou essefunciona ) para isso o github é uma boa opção. Não entrarei em 
+detalhes sobre como criar um repositório no github já que isso é bem documentado na <a href="http://lmgtfy.com/?q=tutorial+github">internet</a>. </p>
+<p>Utilizaremos como receita de build um Makefile. O Makefile é um conjunto de instruções para realizar as tarefas
+necessárias para que o código em C se transforme em binário. Para a criação do makefile pode ser usada a ferramenta
+ <a href="http://www.sax.de/~joerg/mfile/">mfile</a>. No meu caso estou usando um <a href="http://www.atmel.com/images/doc7707.pdf">at90usb162</a>
+ de uma placa chamada <a href="https://code.google.com/p/micropendous/wiki/Micropendous1_Base">Micropendous1</a> que tenho por aqui. </p>
+<div class="codehilite"><pre><span class="nv">MCU</span> <span class="o">=</span> at90usb162
+<span class="nv">FORMAT</span> <span class="o">=</span> ihex
+<span class="nv">TARGET</span> <span class="o">=</span> main
+<span class="nv">SRC</span> <span class="o">=</span> src/<span class="k">$(</span>TARGET<span class="k">)</span>.c
+<span class="nv">ASRC</span> <span class="o">=</span> 
+<span class="nv">OPT</span> <span class="o">=</span> s
+</pre></div>
+
+
+<p>Sem entrar muito em detalhes o primeiro parâmetro seleciona o microcontrolador em uso, SRC diz onde estão os fontes 
+e OPT o nível de otimização do compilador. São os parâmetros que mais provavelmente será preciso mudar.</p>
+<p>Gerado o Makefile é preciso criar o arquivo main.c, no diretório src(que deverá ser criado).</p>
+<div class="codehilite"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+    <span class="p">}</span>
+</pre></div>
+
+
+<p>O código acima é o básico pra compilar, entretanto ele não faz absolutamente nada além de prover a função main,
+necessária no C. Mesmo o Arduino usa
+<a href="https://github.com/arduino/Arduino/blob/master/hardware/arduino/avr/cores/arduino/main.cpp">uma</a>
+e reflete inclusive a estrutura que vou explorar na sequência.</p>
+<p>Ao executar um projeto é importante selecionar uma estrutura. Nesse caso será implementada a estrutura mais básica 
+em um projeto de sistema embarcado: o Powerloop.</p>
+<h4 id="the-mighty-powerloop">The mighty PowerLoop!</h4>
+<p>Em um sistema embarcado, uma vez iniciada a execução a tendência é que o mesmo fique funcionando o tempo todo 
+aguardando a ocorrência de um evento para responder ao mesmo. Assim é quase certeza que você encontrará um loop 
+infinito em algum lugar. </p>
+<p>Assim vou modificar o código pra fazer o simples pisca led. </p>
+<h5 id="configurando-o-hardware-arduino-setup">Configurando o hardware( Arduino setup() )</h5>
+<p>Uma coisa que eu gosto no Arduino é a ideia de separar as duas funções, setup() e loop() reforçando bem a ideia
+de que há a necessidade de executar de modo infinito e que é necessário antes de tudo configurar o setup. Podemos 
+encarar essa etapa inicial como sendo o equivalente a inicialização da bios de um computador desktop. </p>
+<p>Para que o LED pisque é preciso que um pino seja utilizado como saída. Pra isso vamos acrescentar uma seção de 
+configuração do hardware w registradores no projeto, mas primeiro selecionaremos um pino.</p>
+<p>O microcontrolador que estou utilizando é um <a href="http://www.atmel.com/pt/br/Images/doc7707.pdf">at90usb162</a> é um 
+microcontrolador com USB integrada(com bootloader que é uma mão na roda), alguns timers,um comparador e mais 
+algumas interfaces. O <a href="http://www.atmel.com/pt/br/Images/doc7707.pdf">datasheet</a> lista com mais detalhes.</p>
+<p>Para configurar um pino como saída vamos escolher PC5.</p>
+<p>A forma como os periféricos estão organizados faz que cada um deles possua um endereço reservado, um registrador. 
+Estou utilizando o avr-gcc em conjunto com a <a href="http://www.nongnu.org/avr-libc/">avr-libc</a> (o mesmo utilizado 
+nas bibliotecas do Arduino) e assim vamos precisar de incluir no código a lib avr/io.h. Não entrarei nos detalhes
+dela agora mas navegar no código pode ser uma boa pra entender o que eu disse sobre registradores e endereços. </p>
+<div class="codehilite"><pre><span class="cp">#include &lt;avr/io.h&gt;</span>
+
+<span class="cp">#define PIN_USED 5</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+    <span class="c1">// Configuração do PC5 como saída</span>
+    <span class="n">DDRC</span> <span class="o">|=</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">PIN_USED</span><span class="p">);</span>
+    <span class="c1">//loop infinito </span>
+    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+        <span class="c1">//Escrevendo 1 no pino 5 </span>
+        <span class="n">PORTC</span> <span class="o">|=</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">PIN_USED</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>O código apresenta os registradores que controlam a porta digital. Quando a função pinMode é chamada ao escrever
+código para o Arduino no fim das contas o que será feito é setar esse registrador DDRx que é quem define qual a
+direção que o pino será utilizado. O mesmo podemos dizer da função digitalWrite, ela irá realizar a escrita nesse 
+registrador PORTx. É possível checar o código dessas funções no <a href="https://github.com/arduino/Arduino/blob/master/hardware/arduino/avr/cores/arduino/wiring_digital.c">repositório do Arduino no
+github</a>.</p>
+<p>Na linha 11 do código que liga o led temos a escrita exclusiva no bit PIN_USED do registrador PORTC. Do modo 
+o código foi escrito a operação será realizada aplicando a máscara de bits gerada pelo deslocamento do valor 1
+de PIN_USED posições e efetuando a operação ou bit a bit. O resultado é que somente o bit desejado é alterado.</p>
+<p>Para que o led pisque é preciso que ele seja apagado. Entretanto antes de apagar o led é necessário
+aguardar algum tempo pois o microcontrolador executa as instruções em uma taxa que tornaria
+imperceptível o acender do led. </p>
+<div class="codehilite"><pre><span class="cp">#include &lt;avr/io.h&gt;</span>
+<span class="cp">#include &lt;util/delay.h&gt;</span>
+
+<span class="cp">#define PIN_USED 5</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+    <span class="c1">// Configuração do PC5 como saída</span>
+    <span class="n">DDRC</span> <span class="o">|=</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">PIN_USED</span><span class="p">);</span>
+
+    <span class="kt">double</span> <span class="n">ms_delay</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+
+    <span class="c1">//loop infinito </span>
+    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+        <span class="c1">//Escrevendo 1 no pino escolhido </span>
+        <span class="n">PORTC</span> <span class="o">|=</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">PIN_USED</span><span class="p">);</span>
+
+        <span class="n">_delay_ms</span><span class="p">(</span><span class="n">ms_delay</span><span class="p">);</span>
+
+        <span class="n">PORTC</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">PIN_USED</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Na linha 19 temos a operação inversa zerando o bit da porta e apagando o led. Há ainda o uso da
+função _delay_ms disponibilizada pela avr-libc. </p>
+<p>Propositalmente deixei não definida a macro F_CPU. A não definição e uso da função _delay_ms levou
+ao seguinte warning como resultado da compilação. </p>
+<div class="codehilite"><pre># warning &quot;F_CPU not defined for &lt;util/delay.h&gt;&quot;
+</pre></div>
+
+
+<p>Houve sucesso e o código foi gerado mas não funcionaria corretamente dada a ausência do define. Isso
+serve pra ilustrar que nem sempre gerar o código sem erros é sinal de que não há problemas e
+certamente a ausência de um símbolo desses leva a problemas difíceis de localizar, vale como dica de
+que a presença de warnings deve ser tradada com cuidado. </p>
+<p>A solução do problema se dá com a modificação do Makefile e acrescentando F_CPU no valor da
+frequência e modificando a linha contendo CDEFS, que é passado ao compilador. </p>
+<div class="codehilite"><pre><span class="nv">CDEFS</span> <span class="o">=</span> -DF_CPU<span class="o">=</span><span class="k">$(</span>F_CPU<span class="k">)</span>
+</pre></div>
+
+
+<p>Assim o código é compilado e o hex é gerado sem warnings e executará conforme planejado. O resultado
+da compilação após o comando make é:</p>
+<div class="codehilite"><pre>avr-gcc -c -mmcu=at90usb162  -I. -gstabs -DF_CPU=8000000UL  -Os -Wall -Wstrict-prototypes -std=gnu99
+src/main.c -o src/main.o 
+avr-gcc -mmcu=at90usb162  -I. -gstabs -DF_CPU=8000000UL  -Os -Wall -Wstrict-prototypes -std=gnu99
+src/main.o   --output main.elf     -lm
+avr-objcopy -O ihex -R .eeprom main.elf main.hex
+avr-objcopy -j .eeprom --set-section-flags=.eeprom=&quot;alloc,load&quot; \
+--change-section-lma .eeprom=0 -O ihex main.elf main.eep
+avr-objcopy: --change-section-lma .eeprom=0x0000000000000000 never used
+
+Size after:
+AVR Memory Usage
+----------------
+Device: at90usb162
+
+Program:     170 bytes (1.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+</pre></div>
+
+
+<p>O objetivo desse texto é dar uma visão de como é o desenvolvimento utilizando o AVR sem utilizar as
+bibliotecas do Arduino. Naturalmente é possível, inclusive aconselhável a escrita de funções para
+reaproveitar código e mesmo organizar melhor o projeto e acelerar o desenvolvimento. </p>
+<p>Outro ponto que é importante destacar é que não há qualquer intensão em defender o não uso do
+Arduino. A ideia é simplesmente ilustrar outras opções. </p>
+<p>O código produzido está neste <a href="https://github.com/euripedesrocha/noarduino">repositório</a>.</p>
+<div class="fb-share-button"
+data-href="https://parumtronics.github.io/blog/equandonaohaviaoarduino.html "
+data-layout="button_count"></div>
+      </div>
+    </div>
+
+    <div class="col-md-3" role="complementary">
+      <nav class="hidden-print hidden-xs hidden-sm">
+        <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
+          <div class="well">
+            <a href="#"><strong>E quando não havia o Arduino?</strong></a>
+            <div class="toc">
+<ul>
+<li><a href="#os-alicerces-para-o-desenvolvimento">Os alicerces para o desenvolvimento</a></li>
+<li><a href="#executando-um-projeto-sem-o-uso-do-arduino-com-makefile">Executando um projeto sem o uso do Arduino ( com Makefile )</a></li>
+<li><a href="#the-mighty-powerloop">The mighty PowerLoop!</a><ul>
+<li><a href="#configurando-o-hardware-arduino-setup">Configurando o hardware( Arduino setup() )</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+          </div>
+        </div>
+      </nav>
+    </div>
+
+  </div>
+
+
+    <!-- Begin MailChimp Signup Form -->
+    <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+            #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+            /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+               We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+    </style>
+    <div id="mc_embed_signup">
+    <form action="//plugfects.us9.list-manage.com/subscribe/post?u=3eeee13350d8109c74d0baaf6&amp;id=97fdb59364" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div id="mc_embed_signup_scroll">
+            <label for="mce-EMAIL">Continue acompanhando todas as publicações!</label>
+            <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        <div style="position: absolute; left: -5000px;"><input type="text" name="b_3eeee13350d8109c74d0baaf6_97fdb59364" tabindex="-1" value=""></div>
+        <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+        </div>
+    </form>
+    </div>
+
+<!--End mc_embed_signup-->
+    <div class="footer">
+        <p>Website powered by <a href="http://urubu.jandecaluwe.com">Urubu</a></p>
+    </div>
+
+
+</div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

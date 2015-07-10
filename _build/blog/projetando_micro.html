@@ -18,6 +18,15 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.4";
+              fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -173,6 +182,30 @@ de prototipagem atuais tem facilitado bastante a nossa vida.</p>
 <p>Vou me focar no microcontrolador. O circuito básico de um microcontrolador
 envolve os blocos da imagem:</p>
 <p><img alt="" src="../images/ucsections.png" /></p>
+<p>Obviamente é necessário que exista alguma fonte de enrgia para o microcontolador
+o dispositivo será alimentado em corrente contínua com uma tensão que usualmente
+é de 3.3V, alguns microcontroladores irão operar em 5V. Adiante observaremos que
+os microcontroladores possuem mais de um grupo de pinos de alimetação. Essa
+separação tem o objetivo de evitar que ruído ultrapasse os domínios de
+alimentação.</p>
+<p>Segundo <a href="https://pt.wikipedia.org/wiki/Brian_Kernighan">Brian Kernighan</a> debugar
+é duas vezes mais difícil que escrever o código e como sabemos que tudo dará
+errado até que alguma coisa resolva dar certo. Uma das primeiras coisas a se
+garantir é que teremos uma interface para testar e verificar o funcionamento do
+nosso sistema. A primeira função dessa interface é levar o nosso código até a
+memória de programa do microcontrolador mas ela também nos dará a possibilidade
+de executar o código passo a passo.</p>
+<p>Outro elemento relevante é o clock. Microprocessadores são elementos que
+executam uma sequência de ações determinadas por seu conjunto de instruções e
+exigem que exista uma referência temporal para execução. No microcontroladores é
+comum acrescentarmos cristais pra servir como referência de tempo. </p>
+<h3 id="proxima-parte">Próxima parte:</h3>
+<p>No próximo artigo dessa sequência trataremos exclusivamente sobre a seleção do
+microcontrolador, package e seu circuito de alimentação. E começaremos a
+utilizar o kicad pra construir a nossa placa.</p>
+<div class="fb-share-button"
+data-href="https://parumtronics.github.io/blog/projetando_micro.html "
+data-layout="button_count"></div>
       </div>
     </div>
 
@@ -191,6 +224,7 @@ envolve os blocos da imagem:</p>
 <li><a href="#selecao-do-microcontrolador">Seleção do microcontrolador</a></li>
 <li><a href="#particionamento-de-hwsw">Particionamento de hw/sw</a></li>
 <li><a href="#secoes-tipicas-de-uma-placa-com-microcontrolador">Seções típicas de uma placa com microcontrolador</a></li>
+<li><a href="#proxima-parte">Próxima parte:</a></li>
 </ul>
 </div>
 
@@ -202,6 +236,26 @@ envolve os blocos da imagem:</p>
   </div>
 
 
+    <!-- Begin MailChimp Signup Form -->
+    <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+            #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+            /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+               We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+    </style>
+    <div id="mc_embed_signup">
+    <form action="//plugfects.us9.list-manage.com/subscribe/post?u=3eeee13350d8109c74d0baaf6&amp;id=97fdb59364" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div id="mc_embed_signup_scroll">
+            <label for="mce-EMAIL">Continue acompanhando todas as publicações!</label>
+            <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        <div style="position: absolute; left: -5000px;"><input type="text" name="b_3eeee13350d8109c74d0baaf6_97fdb59364" tabindex="-1" value=""></div>
+        <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+        </div>
+    </form>
+    </div>
+
+<!--End mc_embed_signup-->
     <div class="footer">
         <p>Website powered by <a href="http://urubu.jandecaluwe.com">Urubu</a></p>
     </div>

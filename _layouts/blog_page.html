@@ -1,0 +1,87 @@
+{% extends "_base.html" %}
+
+
+{% block body %}
+
+<div class="container">
+
+  {% block breadcrumbs %}
+  <ol class="breadcrumb">
+    <li><a href="{{url_prefix + '/'}}">Home</a></li>
+      {% for bc in this.breadcrumbs[:-1] %}
+      <li><a href="{{bc.url}}">{{bc.title}}</a></li>
+      {% endfor %}
+      <li class="active">{{this.breadcrumbs[-1].title}}</li>
+  </ol>
+  {% endblock %}
+
+  <div class="page-header">
+    {% block title %}
+    <h1>{{this.title}}</h1>
+    {% endblock %}
+  </div>
+
+  <div class="row">
+
+    <div class="content">
+      {% block content %}
+      <div class="col-md-7" role="main">
+        {{this.body}}
+      </div>
+      {% endblock %}
+    </div>
+
+    {% block sidebar %}
+    {% if this.toc %}
+    <div class="col-md-3" role="complementary">
+      <nav class="hidden-print hidden-xs hidden-sm">
+        <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
+          <div class="well">
+            <a href="#"><strong>{{this.title}}</strong></a>
+            {{this.toc}}
+          </div>
+        </div>
+      </nav>
+    </div>
+    {% endif %}
+    {% endblock %}
+
+  </div>
+
+  {% if this.pager %}
+  <ul class="pager">
+    {% if this.prev %}
+    <li class="previous"><a href="{{this.prev.url}}">&larr; {{this.prev.title}}</a></li>
+    {% endif %}
+    {% if this.next %}
+    <li class="next"><a href="{{this.next.url}}">{{this.next.title}} &rarr;</a></li>
+    {% endif %}
+  </ul>
+  {% endif %}
+
+    <!-- Begin MailChimp Signup Form -->
+    <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+            #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+            /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+               We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+    </style>
+    <div id="mc_embed_signup">
+    <form action="//plugfects.us9.list-manage.com/subscribe/post?u=3eeee13350d8109c74d0baaf6&amp;id=97fdb59364" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div id="mc_embed_signup_scroll">
+            <label for="mce-EMAIL">Continue acompanhando todas as publicações!</label>
+            <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        <div style="position: absolute; left: -5000px;"><input type="text" name="b_3eeee13350d8109c74d0baaf6_97fdb59364" tabindex="-1" value=""></div>
+        <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+        </div>
+    </form>
+    </div>
+
+<!--End mc_embed_signup-->
+  {% include 'footer.html' %}
+
+</div>
+
+{% endblock %}
+

@@ -1,7 +1,7 @@
 ---
 title: "Projetando uma placa microcontrolada do zero: Parte 1"
-layout: page
-date: 2014-05-15
+layout: blog_page
+date: 2015-07-10
 ---
 
 Indo direto ao ponto: Essa é uma série de posts sobre como levar uma ideia de
@@ -119,4 +119,33 @@ envolve os blocos da imagem:
 
 ![](../images/ucsections.png)
 
+Obviamente é necessário que exista alguma fonte de enrgia para o microcontolador
+o dispositivo será alimentado em corrente contínua com uma tensão que usualmente
+é de 3.3V, alguns microcontroladores irão operar em 5V. Adiante observaremos que
+os microcontroladores possuem mais de um grupo de pinos de alimetação. Essa
+separação tem o objetivo de evitar que ruído ultrapasse os domínios de
+alimentação.
+
+Segundo [Brian Kernighan](https://pt.wikipedia.org/wiki/Brian_Kernighan) debugar
+é duas vezes mais difícil que escrever o código e como sabemos que tudo dará
+errado até que alguma coisa resolva dar certo. Uma das primeiras coisas a se
+garantir é que teremos uma interface para testar e verificar o funcionamento do
+nosso sistema. A primeira função dessa interface é levar o nosso código até a
+memória de programa do microcontrolador mas ela também nos dará a possibilidade
+de executar o código passo a passo.
+
+Outro elemento relevante é o clock. Microprocessadores são elementos que
+executam uma sequência de ações determinadas por seu conjunto de instruções e
+exigem que exista uma referência temporal para execução. No microcontroladores é
+comum acrescentarmos cristais pra servir como referência de tempo. 
+
+## Próxima parte:
+
+No próximo artigo dessa sequência trataremos exclusivamente sobre a seleção do
+microcontrolador, package e seu circuito de alimentação. E começaremos a
+utilizar o kicad pra construir a nossa placa.
+
+<div class="fb-share-button"
+data-href="https://parumtronics.github.io/blog/projetando_micro.html "
+data-layout="button_count"></div>
 
