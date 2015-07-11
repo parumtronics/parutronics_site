@@ -137,12 +137,10 @@ de executar o código passo a passo.
 Outro elemento relevante é o clock. Microprocessadores são elementos que
 executam uma sequência de ações determinadas por seu conjunto de instruções e
 exigem que exista uma referência temporal para execução. No microcontroladores é
-comum acrescentarmos cristais pra servir como referência de tempo. 
+comum acrescentarmos cristais pra servir como referência de tempo.
 
 ## Próxima parte:
 
 No próximo artigo dessa sequência trataremos exclusivamente sobre a seleção do
 microcontrolador, package e seu circuito de alimentação. E começaremos a
 utilizar o kicad pra construir a nossa placa.
-<!--data-href="https://parumtronics.github.io/blog/projetando_micro.html "-->
-
