@@ -144,8 +144,5 @@ comum acrescentarmos cristais pra servir como referência de tempo.
 No próximo artigo dessa sequência trataremos exclusivamente sobre a seleção do
 microcontrolador, package e seu circuito de alimentação. E começaremos a
 utilizar o kicad pra construir a nossa placa.
-
-<div class="fb-share-button"
-data-href="https://parumtronics.github.io/blog/projetando_micro.html "
-data-layout="button_count"></div>
+<!--data-href="https://parumtronics.github.io/blog/projetando_micro.html "-->
 

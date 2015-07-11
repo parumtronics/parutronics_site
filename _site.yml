@@ -4,6 +4,7 @@ bootswatch: yeti # flatly, yeti, lumen,...
 navbar_inverse: true 
 bootstrap: 3.3.4
 navbar_right_items: 1
+baseurl: https://parumtronics.github.io
 
 reflinks:
     parumtronics:
