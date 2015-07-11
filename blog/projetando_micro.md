@@ -64,7 +64,7 @@ deixe uma sugestão para o próximo projeto nos comentários.
 Um ponto muito importante é selecionar corretamente o microcontrolador com as
 características necessárias ao seu projeto. E não, o fato de o atmega328p estar
 no Arduino não o torna o escolhido para todos os problemas. Nossos amigos do
-Embarcados traçaram uma discussão sobre o assunto então não me estenderei no
+Embarcados traçaram uma [discussão](http://www.embarcados.com.br/microcontrolador/) sobre o assunto então não me estenderei no
 mesmo. Mas os pontos mais relevantes na seleção são:
 
 - **Adequação ao projeto** - Os periféricos atendem as conexões necessárias? Há
