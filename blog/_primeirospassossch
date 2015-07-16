@@ -1,0 +1,23 @@
+---
+title: "Projetando do zero: parte 2"
+layout: blog_page
+date: 2015-07-10
+---
+
+# Iniciando com o kicad
+# Criando a folha mestre
+# Utilizando uma folha hierárquica
+# Utilizando uma folha hierárquica da lib
+(apontar tutorial de utilização do git)
+# Considerações do circuito
+
+- Use o datasheet luke
+- Apnotes
+- Verifique Erratas
+
+# Criando os componentes
+- Informações relevantes
+- Kicad way na criação de projetos
+# Pinos de alimentação
+# Capacitores de decoupling
+

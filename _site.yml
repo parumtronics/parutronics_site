@@ -13,6 +13,15 @@ reflinks:
     arf154_repo:
         url: https://github.com/parumtronics/arf154
         title: arf154
+    digikey_site:
+        url: http://www.digikey.com
+        title: Digikey
+    mouser_site:
+        url: http://www.mouser.com
+        title: Mouser
+    octoparts:
+        url: http://www.octoparts.com
+        title: Octoparts
     urubu_manual:
         url: http://urubu.jandecaluwe.com/manual
         title: Urubu Manual 
