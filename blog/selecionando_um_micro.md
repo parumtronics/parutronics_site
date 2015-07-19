@@ -28,7 +28,7 @@ Que ferramentas usar:
 
 - A busca da [digikey_site] e da [mouser_site] te darão alguns indícios iniciais
 - O site do fabricante te dará as informações complementares
-- Serviços como o [octopars] te darão informações sobre disponibilidade
+- Serviços como o [octoparts] te darão informações sobre disponibilidade
 
 # Filtro inicial
 
@@ -112,7 +112,7 @@ produções em menor escala. Com isso você precisa observar os seus volumes de
 produção e capacidade de investimento.
 
 Para verificar a disponibilidade eu costumo utilizar o [octoparts]. O Paulo do
-[curtaciruitos] criou um addon pro googledocs que vai nos ajudar posteriormente
+[curtacircuitos] criou um addon pro googledocs que vai nos ajudar posteriormente
 a acompanhar preço e disponibilidade dos componentes. Mas nesse momento nós
 queremos somente validar que o componente, no caso o microcontrolador, estará
 disponível.
@@ -159,4 +159,5 @@ Resumindo o caso:
   possibilide de mudança para o futuro caso seja uma situação plausível de
   acontecer.
 
-Na parte dois vamos tratar do esquemático.
+Na parte dois vamos tratar do esquemático e começar e ligar esses pontos com a
+mão na massa.
