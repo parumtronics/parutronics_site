@@ -54,21 +54,23 @@ operam inclusive a tensões mais baixas (1.8V e 1.2V).
 
 Aqui a regra é simples: Utilize o máximo disponível. Com o tempo é possível ter
 uma ideia a priori de quanto de memória será consumido e possibilita filtrar
-coisas muito abaixo do necessário. Mas mesmo com a experiência e principalmente
-se esta é a primeira versão de um produto, como é o caso que estamos tratando,
-selecione o máximo de memória disponível. Geralmente haverá possibilidade pra
-economizar a diferença e otimizar esse parâmetro. Aqui cabe avaliar memória
-flash e memória RAM mas a regra vale pras duas.
+componentes muito abaixo do necessário, como por exemplo um micro com 2KB de
+flash e 512B de RAM terá dificuldades e lidar com uma pilha TCP/IP. Mas mesmo
+com a experiência e principalmente se esta é a primeira versão de um produto,
+como é o caso que estamos tratando, selecione o máximo de memória disponível.
+Geralmente haverá possibilidade pra economizar a diferença e otimizar esse
+parâmetro. Aqui cabe avaliar memória flash e memória RAM mas a regra vale pras
+duas.
 
 # Packages
 
 A escolha aqui é uma questão de habilidade e método. Se é você mesmo quem irá
 montar manualmente é bom escolher um package que não irá te atrapalhar. Não
-tenha medo de componentes SMD soldá-los é mais fácil que parece, mesmo
+tenha medo de componentes SMD, soldá-los é mais fácil que parece, mesmo
 utilizando um ferro de solda comum.
 
 Para microcontroladores há muitas opções disponíveis mas você deve ter uma ideia
-sobre a quantidade de pinos que precise, deixe uma folga, nunca se sabe se será
+sobre a quantidade de pinos que precisa, deixe uma folga, nunca se sabe se será
 preciso acrescentar aquele recurso aos 48 do segundo tempo.
 
 Se possui pouca habilidade e fará a montagem manualmente evite componentes do
@@ -77,10 +79,9 @@ montar BGAs manualmente então retire os da lista. Para as primeiras aventuras
 com montagem de SMD SOIC, TSOP e xQFP são bem fáceis. Em todos os casos um pouco
 de paciência e um pouquinho de prática serão suficientes pra fazer a montagem. É
 provável que nessa etapa você acabe com um microcontrolador cujo package é um
-QFP. Você pode, em caso de curiosidade colocar utilizando o kicad ou o eagle os
-packages e imprimir em uma folha de papel pra ter uma ideia. Adiante nós
-voltaremos a discutir sobre encapsulamentos. Não se preocupe com as siglas com o
-tempo elas serão familiares.
+QFP. Você pode imprimir esse arquivo com os packages comuns e observar o
+tamanho. Adiante nós voltaremos a discutir sobre encapsulamentos. Não se preocupe
+com as siglas com o tempo elas serão familiares.
 
 **Criar a folha com os packages pra download e impressão**
 
@@ -97,7 +98,7 @@ organizar a construção do firmware e bibliotecas retomamos o assunto.
 
 É preciso considerar o ciclo e ferramentas que serão utilizadas. Se pretende
 usar Linux ou Android você não conseguirá fazê-lo com desempenho aceitável em um
-AVR ou Cortex-Mx. Se deseja utilizar [eLua] ou [micropython] opte por
+AVR ou Cortex-Mx. Se deseja utilizar [elua] ou [micropython] opte por
 microcontroladores que tenham a possibilidade de suportar essas ferramentas.
 
 # Analisando disponibilidade
@@ -120,7 +121,7 @@ disponível.
 ## Estudo de caso emmc vs cartão SD
 
 Para um exemplo prático vamos considerar um projeto onde será necessária a
-utilização de algum meio de reigstro de informações, por exemplo imagens ou
+utilização de algum meio de registro de informações, por exemplo imagens ou
 áudio e então arbitrou-se que pelo menos 8GB devem estar disponíveis no
 produto.
 
