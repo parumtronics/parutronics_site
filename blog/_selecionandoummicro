@@ -120,8 +120,43 @@ disponível.
 ## Estudo de caso emmc vs cartão SD
 
 Para um exemplo prático vamos considerar um projeto onde será necessária a
-utilização de algum meio de reigstro de informações
-# Iniciando com o kicad
-# Pinos de alimentação
-# Capacitores de decoupling
+utilização de algum meio de reigstro de informações, por exemplo imagens ou
+áudio e então arbitrou-se que pelo menos 8GB devem estar disponíveis no
+produto.
 
+Se houver restrições de tamanho a utilização de um cartão SD pode ser danosa por
+conta do tamanho do dispositivo. Nesse caso podemos optar pelo uso de um cartão
+micro SD, resolvendo possivelmente a questão do tamanho. Esse é um ponto que
+devemos ter em mente, muitas vezes a solução possui diversas opções de tamanho,
+encapsulamento e pinos. É preciso analisar as opções e confrontá-las antes de
+escolher.
+
+O cartão no formato micro SD acrescentará dois itens a nossa lista de materiais
+e um requisito à seleção do microcontrolador. Temos de acrescentar o cartão
+micro SD e o conector. Além disso temos de pensar que o mesmo terá de ser
+montado e como será o acesso ao cartão. Se o seu projeto é destinado ao seu uso
+somente isso não será um problema tão grande. Se o seu projeto pretende atingir
+mais que as pessoas do seu círculo de amizades a interface com o usuário precisa
+de algum pensamento.
+
+Uma outra alternativa seria utilizar um eMMC. Podemos resumir o eMMC como sendo
+o cartão microSD em formato de circuito integrado. Um problema frente ao uso do
+cartão mais conector é que o encapsulamento não é amistoso para soldar
+manualmente. Uma vantagem é que em caso de montagem automática é um CI e não
+necessitará de nenhum passo extra de montagem. Em volume o custo tende a ser
+menor e o espaço ocupado na placa também. Uma questão é que não é fácil
+encontrá-los para comprar em poucas unidades. São muitas questões em aberto e
+isso vale para quase todas as escolhas do projeto. Avaliando o impacto na
+escolha do microcontrolador no caso do cartão você pode acessá-lo via SPI ou
+utilizando o controlador próprio caso o seu microcontrolador o possua. No caso
+do eMMC, não há a interface SPI.
+
+Resumindo o caso:
+- Atente que há mais de uma opção para resolver todas as questões em um projeto
+- A resposta sobre melhor ou pior sempre depende do seu projeto em questão, seja
+  por fatores técnicos ou econômicos.
+- Nos estágios iniciais opte pela opção mais rápida. Mas atente para deixar a
+  possibilide de mudança para o futuro caso seja uma situação plausível de
+  acontecer.
+
+Na parte dois vamos tratar do esquemático.
