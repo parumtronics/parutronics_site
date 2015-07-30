@@ -13,7 +13,7 @@ portanto nós vamos utilizar um microcontrolador da mesma família, entretanto
 vamos assumir que não sabemos ainda qual microcontrolador será utilizado e
 analisar algumas possibilidades na seleção.
 
-# Listando periféricos a partir da descrição/diagrama de blocos do projeto
+# Listando os periféricos necessários
 
 Na [primeira parte][projetando_micro] nós estabelecemos a necessidade de
 produzir uma descrição do projeto e um diagrama de blocos para definir os
@@ -61,7 +61,7 @@ flash e 512B de RAM terá dificuldades e lidar com uma pilha TCP/IP. Mas mesmo
 com a experiência e principalmente se esta é a primeira versão de um produto,
 como é o caso que estamos tratando, selecione o máximo de memória disponível.
 Geralmente haverá possibilidade pra economizar a diferença e otimizar esse
-parâmetro. Aqui cabe avaliar memória flash e memória RAM mas a regra vale pras
+parâmetro depois. Aqui cabe avaliar memória flash e memória RAM mas a regra vale pras
 duas.
 
 # Packages
