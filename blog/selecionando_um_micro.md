@@ -1,5 +1,5 @@
 ---
-title: "Projetando do zero: parte 1.5"
+title: "Projetando uma placa microcontrolada do zero: parte 1.5"
 layout: blog_page
 date: 2015-07-29
 ---
