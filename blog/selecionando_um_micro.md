@@ -4,6 +4,8 @@ layout: blog_page
 date: 2015-07-10
 ---
 
+![](../images/600px-28_pin_MLP_integrated_circuit.jpg)
+
 Dando sequência ao projeto iniciado na [primeira parte][projetando_micro] vamos
 analisar as motivações para a seleção de um microcontrolador mas de forma mais
 específica. Nosso projeto é dedicado a ser compatível com o Arduino Zero e
@@ -79,11 +81,11 @@ montar BGAs manualmente então retire os da lista. Para as primeiras aventuras
 com montagem de SMD SOIC, TSOP e xQFP são bem fáceis. Em todos os casos um pouco
 de paciência e um pouquinho de prática serão suficientes pra fazer a montagem. É
 provável que nessa etapa você acabe com um microcontrolador cujo package é um
-QFP. Você pode imprimir esse arquivo com os packages comuns e observar o
-tamanho. Adiante nós voltaremos a discutir sobre encapsulamentos. Não se preocupe
-com as siglas com o tempo elas serão familiares.
+QFP. Adiante nós voltaremos a discutir sobre encapsulamentos. Não se preocupe
+com as siglas com o tempo elas serão familiares e os tamanhos também. Essa
+imagem da wikipedia dá uma ideia dos tamanhos.
 
-**Criar a folha com os packages pra download e impressão**
+![](../images/SMT_sizes,_based_on_original_by_Zureks.svg.png)
 
 # Há ferramentas?
 
