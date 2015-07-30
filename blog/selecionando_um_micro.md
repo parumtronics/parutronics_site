@@ -1,7 +1,7 @@
 ---
 title: "Projetando do zero: parte 1.5"
 layout: blog_page
-date: 2015-07-10
+date: 2015-07-29
 ---
 
 ![](../images/600px-28_pin_MLP_integrated_circuit.jpg)
