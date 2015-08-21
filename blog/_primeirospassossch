@@ -1,10 +1,18 @@
 ---
-title: "Projetando do zero: parte 2"
+title: "Projetando uma placa microcontrolada do zero: Parte 2"
 layout: blog_page
 date: 2015-07-10
 ---
 
+Após todas as considerações das partes [1][projetando_micro] e
+[2][selecionando_um_micro] vamos finalmente iniciar o trabalho aplicado. Nessa
+parte será refletido o nosso fluxo de trabalho. Diversas pessoas e empresas
+terão fluxos de trabalho ligeiramente diferentes e isso não é nenhum problema. 
+
 # Iniciando com o kicad
+
+Primeiramente é preciso instalar o kicad. 
+
 # Criando a folha mestre
 # Utilizando uma folha hierárquica
 # Utilizando uma folha hierárquica da lib

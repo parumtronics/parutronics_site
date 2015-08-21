@@ -22,8 +22,8 @@ em mente alguns filtros macro, como por exemplo, você já investiu em ferrament
 para uma determinada família, então tende a permanecer com ela, você já utiliza
 faz tempo um determinado microcontrolador e quer se manter na mesma família. Mas
 é importante verificar se esse filtro prévio não vai te atrapalhar, já vi
-algumas vezes essa escolha errada no começo mais atrapalhar que ajudar, caso
-seja o caso se possível reinicie do zero! A [dívida
+algumas vezes essa escolha errada no começo atrapalhar muito, ser for o caso e
+se possível reinicie do zero! A [dívida
 técnica](http://pt.stackoverflow.com/questions/32420/o-que-%C3%A9-d%C3%ADvida-t%C3%A9cnica) cobra juros mais pesados que os bancos brasileiros.
 
 Que ferramentas usar:
